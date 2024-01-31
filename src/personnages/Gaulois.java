@@ -22,7 +22,21 @@ public class Gaulois {
     public void parler(String texte) {
         System.out.println("Le gaulois " + nom + " : «" + texte + "».");
     }
+    
+    
+    
+    // Méthode frapper
+    public void frapper(Romain romain) {
+        parler(nom + " envoie un grand coup dans la mâchoire dans " + romain.getNom());
+        int forceDuCoup = force / 3;
+        romain.recevoirCoup(forceDuCoup);
+    }
 
+    
+    
+    
+    
+    //MAIN
     
     public static void main(String[] args) {
 		// Création d'un objet Gaulois
