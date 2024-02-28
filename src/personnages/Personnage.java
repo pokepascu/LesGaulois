@@ -1,7 +1,7 @@
 package personnages;
 
 public class Personnage {
-	//Déclaration des attributs
+	//Dï¿½claration des attributs
 	String nom;
 	int force;
 	
@@ -18,13 +18,13 @@ public class Personnage {
     
     
     
-    // Méthode parler
+    // Mï¿½thode parler
     public void parler(String texte) {
-        System.out.println("Le Gaulois " + nom + " : «" + texte + "».");
+        System.out.println("Le Gaulois " + nom + " : ï¿½" + texte + "ï¿½.");
     }
     
     
-    // Méthode recevoirCoup
+    // Mï¿½thode recevoirCoup
     public void recevoirCoup(int forceDuCoup) {
         force -= forceDuCoup;
 
@@ -33,16 +33,16 @@ public class Personnage {
         }
 
         if (force > 0) {
-            parler("Aïe !");
+            parler("Aï¿½e !");
         } else {
-            parler("J’abandonne…");
+            parler("J'abandonneï¿½");
         }
     }
     
     
-    // Méthode frapper
+    // Mï¿½thode frapper
     public void frapper(Romain romain) {
-        parler(nom + " envoie un grand coup dans la mâchoire dans " + romain.getNom());
+        parler(nom + " envoie un grand coup dans la mï¿½choire dans " + romain.getNom());
         int forceDuCoup = force / 3;
         romain.recevoirCoup(forceDuCoup);
     }
@@ -54,8 +54,8 @@ public class Personnage {
     //MAIN
     
     public static void main(String[] args) {
-		// Création d'un objet Personnage
-		Personnage asterix = new Personnage("Astérix", 8);
+		// Crï¿½ation d'un objet Personnage
+		Personnage asterix = new Personnage("Astï¿½rix", 8);
 		
         // Utilisation du getter pour obtenir le nom du Personnage
         String nomAsterix = asterix.getNom();
