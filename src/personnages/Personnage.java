@@ -1,72 +1,54 @@
 package personnages;
 
-public class Personnage {
-	//D�claration des attributs
-	String nom;
-	int force;
+abstract class Personnage {
+	protected String nom;
+	protected int force;
 	
-	//constructeur de la classe
-	public Personnage(String nom, int force) {
+	protected Personnage(String nom, int force){
 		this.nom = nom;
 		this.force = force;
 	}
 	
-	//getteur sur le nom de Personnage
-    public String getNom() {
-        return nom;
-    }
-    
-    
-    
-    // M�thode parler
-    public void parler(String texte) {
-        System.out.println("Le Gaulois " + nom + " : �" + texte + "�.");
-    }
-    
-    
-    // M�thode recevoirCoup
-    public void recevoirCoup(int forceDuCoup) {
-        force -= forceDuCoup;
-
-        if (force < 0) {
-            force = 0;
-        }
-
-        if (force > 0) {
-            parler("A�e !");
-        } else {
-            parler("J'abandonne�");
-        }
-    }
-    
-    
-    // M�thode frapper
-    public void frapper(Romain romain) {
-        parler(nom + " envoie un grand coup dans la m�choire dans " + romain.getNom());
-        int forceDuCoup = force / 3;
-        romain.recevoirCoup(forceDuCoup);
-    }
-
-    
-    
-    
-    
-    //MAIN
-    
-    public static void main(String[] args) {
-		// Cr�ation d'un objet Personnage
-		Personnage asterix = new Personnage("Ast�rix", 8);
-		
-        // Utilisation du getter pour obtenir le nom du Personnage
-        String nomAsterix = asterix.getNom();
-
-        // Affichage du packetage, classe et nom en hexa
-        System.out.println(asterix);
-		
-        // Affichage du nom du Personnage
-        System.out.println("Nom du Gaulois : " + nomAsterix);
+	
+	 public String getNom () {
+		return nom;
+	}
+	
+	public void parler(String texte) {
+		System.out.println("Le " + donnerAuteur() + " " + nom + " : \"" + texte +"\"" );
+	}
+	
+	protected abstract String donnerAuteur();
+	
+	public void frapper(Personnage adversaire) {
+		if (force>0 && !estMort(adversaire)) {
+			System.out.println("Le " + donnerAuteur() + " " + nom + " donne un grand coup de force " + force + " au " + adversaire.donnerAuteur() + " " + adversaire.getNom() );
+			adversaire.recevoirCoup(force);
+		}
+	}
+	
+	public void recevoirCoup(int forceCoup) {
+		force = force - forceCoup;
+		if (force > 0) 
+			parler("Aïe");
+		else 
+		{
+			force = 0;
+			parler("J'abandonne");
+		}
 		
 	}
+	
+	public boolean estMort(Personnage adversaire) {
+		boolean enVie;
+		if (adversaire.force<=0) {
+			enVie = true;
+		}
+		else {
+			enVie=false;
+		}
+		return enVie;
+	}
+
 
 }
-

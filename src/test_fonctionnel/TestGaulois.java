@@ -5,14 +5,14 @@ import personnages.Romain;
 
 public class TestGaulois {
 	public static void main(String[] args) {
-		// Création d'un objet Gaulois
-		Gaulois asterix = new Gaulois("Astérix", 8);
+		// Crï¿½ation d'un objet Gaulois
+		Gaulois asterix = new Gaulois("Astï¿½rix", 8);
 		
         // Utilisation du getter pour obtenir le nom du Gaulois
         String nomAsterix = asterix.getNom();
         
-        // Utilisation de la méthode parler
-        asterix.parler("Bonjour à tous");
+        // Utilisation de la mï¿½thode parler
+        asterix.parler("Bonjour ï¿½ tous");
 
         // Affichage du packetage, classe et nom en hexa
         //System.out.println(asterix);
@@ -22,11 +22,11 @@ public class TestGaulois {
         
         
         Romain minus = new Romain("Minus", 6);
-        minus.parler("UN GAU… UN GAUGAU…");
+        minus.parler("UN GAUï¿½ UN GAUGAUï¿½");
         
         
         
-        // Utilisation de la méthode recevoirCoup avec une boucle for
+        // Utilisation de la mï¿½thode recevoirCoup avec une boucle for
         /*for (int i = 0; i < 2; i++) {
             minus.recevoirCoup(3);
         }*/
