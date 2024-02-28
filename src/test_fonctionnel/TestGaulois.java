@@ -1,38 +1,48 @@
 package test_fonctionnel;
 
+import personnages.Armure;
+import personnages.Druide;
 import personnages.Gaulois;
+import personnages.Grade;
 import personnages.Romain;
+import personnages.Soldat;
 
 public class TestGaulois {
 	public static void main(String[] args) {
-		// Cr�ation d'un objet Gaulois
-		Gaulois asterix = new Gaulois("Ast�rix", 8);
 		
-        // Utilisation du getter pour obtenir le nom du Gaulois
-        String nomAsterix = asterix.getNom();
-        
-        // Utilisation de la m�thode parler
-        asterix.parler("Bonjour � tous");
-
-        // Affichage du packetage, classe et nom en hexa
-        //System.out.println(asterix);
+		Gaulois asterix = new Gaulois("Astérix",5);
+		Soldat minus = new Soldat ("Minus",Grade.SOLDAT,6);
 		
-        // Affichage du nom du Gaulois
-        //System.out.println("Nom du Gaulois : " + nomAsterix);
-        
-        
-        Romain minus = new Romain("Minus", 6);
-        minus.parler("UN GAU� UN GAUGAU�");
-        
-        
-        
-        // Utilisation de la m�thode recevoirCoup avec une boucle for
-        /*for (int i = 0; i < 2; i++) {
-            minus.recevoirCoup(3);
-        }*/
-        
-        asterix.frapper(minus);
-
+		//System.out.println(asterix.getNom());
+		
+		Gaulois obelix = new Gaulois("Obélix",15);
+		Gaulois assurancetourix = new Gaulois("Assurancetourix",4);
+		Gaulois abraracourcix = new Gaulois("Abraracourcix",4);
+		Gaulois agecanonix = new Gaulois("Agecanonix",4);
+		
+		minus.equiperArmure(Armure.BOUCLIER);
+		minus.equiperArmure(Armure.CASQUE);
+		minus.equiperArmure(Armure.PLASTRON);
+		
+		Druide panoramix = new Druide("Panoramix",1);
+		panoramix.fabriquerPotion(3);
+		
+		
+		panoramix.donnerPotion(asterix);
+		panoramix.donnerPotion(obelix);
+		panoramix.donnerPotion(assurancetourix);
+		panoramix.donnerPotion(abraracourcix);
+		panoramix.donnerPotion(agecanonix);
+		
+		
+		
+		asterix.parler("Bonjour à tous");
+		minus.parler("Un Gau .. Gaugole");
+		
+		
+		for (int i = 0; i<4; i++) {
+			asterix.frapper(minus);
+			minus.frapper(asterix);
+		}
 	}
 }
-
