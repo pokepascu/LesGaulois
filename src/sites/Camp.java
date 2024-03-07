@@ -7,8 +7,8 @@ import personnages.Grade;
 import personnages.Soldat;
 
 public class Camp {
-	Soldat commandant;
-	Soldat[] soldats = new Soldat[3];
+	private Soldat commandant;
+	private Soldat[] soldats = new Soldat[10];
 	
 	
 	public Camp(Soldat commandant) {
@@ -54,11 +54,13 @@ public class Camp {
 	
 	
 	public Soldat randomSoldat() {
-		Random rand = new Random();
-		int randomNum = rand.nextInt(soldats.length + 1);
-
-
-		return soldats[randomNum];
+	    Random rand = new Random();
+	    Soldat soldat = null;
+	    while (soldat == null || soldat.grade != Grade.SOLDAT) {
+	        int randomNum = rand.nextInt(soldats.length);
+	        soldat = soldats[randomNum];
+	    }
+	    return soldat;
 	}
 	
 }
