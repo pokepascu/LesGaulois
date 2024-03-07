@@ -2,6 +2,8 @@ package batailles;
 
 import personnages.Gaulois;
 import personnages.Soldat;
+import sites.Village;
+
 
 public class Embuscade implements Bataille {
 	private Gaulois[] gaulois = new Gaulois[4];
@@ -36,6 +38,19 @@ public class Embuscade implements Bataille {
 	public String donnerResultat() {
 
 		return "donnerResultat";
+	}
+	
+	
+	private void selectionGaulois(Village village) {
+		for (int i=0; i< gaulois.length; i++) {
+			Gaulois g = village.randomVillageois();
+			if ( gaulois[i] != g ) {
+				gaulois[i] = g ;
+			}
+			else {
+				i--;
+			}
+		}
 	}
 
 }
