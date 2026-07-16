@@ -1,2 +1,2 @@
 # LesGaulois
-Dépôt pour les premiers TPs de Java
+Upssitech - Dépôt pour les premiers TPs de POO_Java
